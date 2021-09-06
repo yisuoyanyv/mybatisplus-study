@@ -1,0 +1,26 @@
+server:
+  8080
+
+# 该配置的名称是固定的，不可以改变，否则将不能自动加载到数据源中
+spring:
+  datasource:
+    # 使用druid数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mybatis?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    # yml文件上对于纯数字类型的密码需要加引号，如果是包含字母的就不需要。
+    password: '000000'
+    filters: stat
+    maxActive: 20
+    initialSize: 1
+    maxWait: 600000
+    minIdel: 1
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: select 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+    maxOpenPreparedStatements: 20
